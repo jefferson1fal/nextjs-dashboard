@@ -30,7 +30,7 @@ export default async function LatestInvoices() {
                   {invoice.image_url ? (
                     <Image
                       src={invoice.image_url}
-                      alt={`${invoice.name ?? 'Unknown'}'s profile picture`}
+                      alt={`${invoice.name ?? "Unknown"}'s profile picture`}
                       className="mr-4 rounded-full"
                       width={32}
                       height={32}
@@ -40,10 +40,10 @@ export default async function LatestInvoices() {
                   )}
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
-                      {invoice.name ?? 'Unknown'}
+                      {invoice.name ?? "Unknown"}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
-                      {invoice.email ?? ''}
+                      {invoice.email ?? ""}
                     </p>
                   </div>
                 </div>
