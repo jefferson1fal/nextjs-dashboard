@@ -18,7 +18,7 @@ export default async function LatestInvoices() {
           {latestInvoices.map((invoice, i) => {
             return (
               <div
-                key={invoice.id}
+                key={invoice.id ?? `latest-${i}`}
                 className={clsx(
                   "flex flex-row items-center justify-between py-4",
                   {
@@ -27,19 +27,23 @@ export default async function LatestInvoices() {
                 )}
               >
                 <div className="flex items-center">
-                  <Image
-                    src={invoice.image_url}
-                    alt={`${invoice.name}'s profile picture`}
-                    className="mr-4 rounded-full"
-                    width={32}
-                    height={32}
-                  />
+                  {invoice.image_url ? (
+                    <Image
+                      src={invoice.image_url}
+                      alt={`${invoice.name ?? 'Unknown'}'s profile picture`}
+                      className="mr-4 rounded-full"
+                      width={32}
+                      height={32}
+                    />
+                  ) : (
+                    <div className="mr-4 h-8 w-8 rounded-full bg-gray-200" />
+                  )}
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
-                      {invoice.name}
+                      {invoice.name ?? 'Unknown'}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
-                      {invoice.email}
+                      {invoice.email ?? ''}
                     </p>
                   </div>
                 </div>
