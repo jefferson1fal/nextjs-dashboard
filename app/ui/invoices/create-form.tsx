@@ -140,7 +140,11 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
         <Button type="submit">Create Invoice</Button>
       </div>
       {state.message ? (
-        <div className="mt-4 text-sm text-red-500" aria-live="polite" aria-atomic="true">
+        <div
+          className="mt-4 text-sm text-red-500"
+          aria-live="polite"
+          aria-atomic="true"
+        >
           {state.message}
         </div>
       ) : null}
